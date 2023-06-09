@@ -6,15 +6,52 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="JAVA容器集合 底层数据结构  Object[] elementData Object数组   常量    构造器    使用空构造器和赋值初始容量构造器区别 空构造器是将elementData指向DEFAULTCAPACITY_EMPTY_ELEMENTDATA 这本质是一个空的Object数组，只有当第一次使用add的时候才会初始化为DEFAULT_CAPACITY(10) 使用初始容量构造">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JAVA容器集合 底层数据结构  Object[] elementData Object数组   常量    构造器    使用空构造器和赋值初始容量构造器区别 空构造器是将elementData指向DEFAULTCAPACITY_EMPTY_ELEMENTDATA 这本质是一个空的Object数组，只有当第一次使用add的时候才会初始化为DEFAULT_CAPACITY(10) 使用初始容量构造">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301037350.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301038240.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301038001.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301044113.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301106750.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301109566.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301120269.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301124411.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301445765.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301552102.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301355228.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301355990.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301424687.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301424498.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301428902.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301553766.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302048004.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302050850.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302113115.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302116267.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302120664.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302121653.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302121225.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302123111.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302124358.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302138048.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302124701.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302053562.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021441259.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021514283.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021517999.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021648667.png">
+<meta property="article:published_time" content="2023-06-09T12:25:51.616Z">
+<meta property="article:modified_time" content="2023-06-08T11:14:10.592Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301037350.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -140,235 +177,533 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JAVA容器" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JAVA容器"><a href="#JAVA容器" class="headerlink" title="JAVA容器"></a>JAVA容器</h1><h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><blockquote>
+<p>底层数据结构</p>
+</blockquote>
+<p>Object[] elementData Object数组</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301037350.png" alt="image-20230430103705237"></p>
+<blockquote>
+<p>常量</p>
+</blockquote>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301038240.png" alt="image-20230430103822161"></p>
+<blockquote>
+<p>构造器</p>
+</blockquote>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301038001.png" alt="image-20230430103839918"></p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301044113.png" alt="image-20230430104431051"></p>
+<p>使用空构造器和赋值初始容量构造器区别</p>
+<p>空构造器是将elementData指向DEFAULTCAPACITY_EMPTY_ELEMENTDATA 这本质是一个空的Object数组，只有当第一次使用add的时候才会初始化为DEFAULT_CAPACITY(10)</p>
+<p>使用初始容量构造器时，若初始容量为0则将elementData指向EMPTY_ELEMENTDATA 标识为空列表</p>
+<blockquote>
+<p>调用add</p>
+</blockquote>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301106750.png" alt="image-20230430110628664"></p>
+<p>通过ensureCapacityInternal判断容量是能装下当前数据量+1</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301109566.png" alt="image-20230430110927502"></p>
+<p>通过calculateCapacity判断最少需要的容量</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301120269.png" alt="image-20230430112009209"></p>
+<p>如果是默认容量的空数组，则所需容量为max(10,所需容量),这里不直接返回10是为了兼容addAll方法一次性添加多个元素的情况，可能会添加超过10个元素</p>
+<p>然后判断是否需要扩容</p>
+<p>如果所需容量大于当前Object数组长度，则需要进行扩容</p>
+<blockquote>
+<p>扩容时机</p>
+</blockquote>
+<p>add&#x2F;addAll等方法</p>
+<p>-&gt; ensureCapacityInternal</p>
+<p>-&gt; ensureExplicitCapacity方法</p>
+<p>判断所需容量大于当前容量时</p>
+<blockquote>
+<p>扩容大小</p>
+</blockquote>
+<p>1.5倍扩容</p>
+<p>旧容量 + 旧容量 &gt;&gt; 1</p>
+<p>右移相当于除2</p>
+<p>扩容后大小即为1.5倍旧容量</p>
+<p>若扩容后大小任不能装下则直接扩容为所需容量(newCapacity &lt; minCapacity)</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301124411.png" alt="image-20230430112447348"></p>
+<p>如果扩容容量大于MAX_ARRAY_SIZE 则使用hugeCapacity进行扩容</p>
+<p>MAX_ARRAY_SIZE为 Integer.MAX_VALUE - 8 (-8是因为某些VM胡子爱数字钟保留一些标头字，尝试分配后面8个位置<strong>可能会报错</strong>内存不足)</p>
+<blockquote>
+<p>序列化&amp;反序列化</p>
+</blockquote>
+<p>ArrayList 的elementData使用了transient修饰 意味着不会被序列化</p>
+<p>使用writeObject和readObject进行序列化</p>
+<ul>
+<li>序列化过程<ul>
+<li>读取modCouont(结构被修改次数)</li>
+<li>先调用.defaultWriteObject()写入当前类的非静态和非瞬态字段</li>
+<li>然后witreInt写入size</li>
+<li>再循环写入元素(数组空白部分不会被序列化)</li>
+<li>判断写入过程中数组是否被操作过 操作过序列化直接失败</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301445765.png" alt="image-20230430144542698"></p>
+<ul>
+<li>反序列化过程<ul>
+<li>先初始化elementData为空类型</li>
+<li>先调用.defaultReadObject()读取当前类的非静态和非瞬态字段</li>
+<li>然后readInt 读取数组大小</li>
+<li>通过SharedSecrets.getJavaOISAccess().checkArray(s, Object[].class, capacity);检查反序列化传输数据<ul>
+<li>判断s是否为Obejct[]类型数据且容量是否大于等于capacity</li>
+</ul>
+</li>
+<li>判断当前数组是否能容纳，不能内部就进行自动扩容</li>
+<li>获取当前实例的elementData实例</li>
+<li>循环写入数据</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301552102.png" alt="image-20230430155245998"></p>
+<h4 id="扩容全流程"><a href="#扩容全流程" class="headerlink" title="扩容全流程"></a>扩容全流程</h4><ul>
+<li>首先调用add &#x2F; addAll方法</li>
+<li>这个时候会做一个容量检查</li>
+<li>目标容量是当前元素数量+1 &#x2F; data.length()(addAll方法的)</li>
+<li>首先判断elementData是否是DEFAULT_ELEMENT_DATA是的话说明尚未初始化<ul>
+<li>指向DEFAULT_ELEMENT_DATA说明只是刚创建但是还没有第一次赋值<ul>
+<li>虽然说默认大小是10但是如果不进行添加元素的操作的话，初始会指向一个空的Object[] &#x3D; {} 节省了一定的空间</li>
+</ul>
+</li>
+<li>判断所需容量和默认容量10哪个大，返回大的那个</li>
+</ul>
+</li>
+<li>然后判断所需容量和当前容量情况<ul>
+<li>若不足则进行自动扩容</li>
+<li>计算目标扩容大小<ul>
+<li>旧容量 + 旧容量 &gt;&gt; 1</li>
+</ul>
+</li>
+<li>若目标扩容大小仍不足则直接扩容至所需大小</li>
+<li>若超出MAX_ARRAY_SIZE 则尝试扩容后8位<ul>
+<li>MAX_ARRAY_SIZE &#x3D;&gt; Integer.MAX_VALUE - 8<ul>
+<li>某些VM会在数组中保留一些标头字，尝试分配更大的阵列可能会导致内存不足错误</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="LinkedList源码分析"><a href="#LinkedList源码分析" class="headerlink" title="LinkedList源码分析"></a>LinkedList源码分析</h3><h4 id="底层数据结构"><a href="#底层数据结构" class="headerlink" title="底层数据结构"></a>底层数据结构</h4><p>双向链表</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301355228.png" alt="image-20230430135504143"></p>
+<p>通过记录头结点和尾结点来链接整个链表</p>
+<h4 id="节点结构"><a href="#节点结构" class="headerlink" title="节点结构"></a>节点结构</h4><p>item 数据</p>
+<p>prev 前驱</p>
+<p>next 后继</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301355990.png" alt="image-20230430135553941"></p>
+<h4 id="移除头结点"><a href="#移除头结点" class="headerlink" title="移除头结点"></a>移除头结点</h4><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301424687.png" alt="image-20230430142444622"></p>
+<p>help gc 原理: 等我看我gc机制再回来补</p>
+<h4 id="移除尾结点"><a href="#移除尾结点" class="headerlink" title="移除尾结点"></a>移除尾结点</h4><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301424498.png" alt="image-20230430142452443"></p>
+<p>help gc 原理: 等我看我gc机制再回来补</p>
+<h4 id="寻址"><a href="#寻址" class="headerlink" title="寻址"></a>寻址</h4><p>从链表一段开始寻找到所需索引位置</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301428902.png" alt="image-20230430142813843"></p>
+<p>这里会根据index的位置判断从头还是尾开始找</p>
+<p>index &lt; size &#x2F; 2 从头开始找</p>
+<p>index &gt;&#x3D; size &#x2F; 2 从尾部开始找</p>
+<h4 id="序列化-amp-反序列化"><a href="#序列化-amp-反序列化" class="headerlink" title="序列化&amp;反序列化"></a>序列化&amp;反序列化</h4><ul>
+<li><p>序列化</p>
+<ul>
+<li><p>先调用.defaultWriteObject()写入当前类的非静态和非瞬态字段</p>
+</li>
+<li><p>然后witreInt写入size</p>
+</li>
+<li><p>循环写入链表元素(前驱和后继是引用类型，写入无意义，后续需要在反序列化是重建前驱和后继联系)</p>
+</li>
+</ul>
+</li>
+<li><p>反序列化</p>
+<ul>
+<li>先调用.defaultReadObject()读取当前类的非静态和非瞬态字段</li>
+<li>然后readInt 读取数组大小</li>
+<li>循环读取链表元素并使用尾插法插入节点</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304301553766.png" alt="image-20230430155336713"></p>
+<h3 id="HashMap源码分析"><a href="#HashMap源码分析" class="headerlink" title="HashMap源码分析"></a>HashMap源码分析</h3><p>map接口基于哈希表的实现，允许所有可选的映射操作，允许null值和null键</p>
+<p>初始大小16，每次扩容，容量变为原来的两倍</p>
+<h4 id="链表节点"><a href="#链表节点" class="headerlink" title="链表节点"></a>链表节点</h4><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302048004.png" alt="image-20230430204824764"></p>
+<ul>
+<li><p>hash key 经过扰动得到</p>
+</li>
+<li><p>next 后继</p>
+</li>
+</ul>
+<h4 id="底层存储结构"><a href="#底层存储结构" class="headerlink" title="底层存储结构"></a>底层存储结构</h4><p>Node数组 默认大小为16 第一次放入键值时才会初始化为16大小的数组</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302050850.png" alt="image-20230430205007793"></p>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302113115.png" alt="image-20230430211304007"></p>
+<h4 id="核心属性"><a href="#核心属性" class="headerlink" title="核心属性"></a>核心属性</h4><p>table: 存放核心数据</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302116267.png" alt="image-20230430211632206"></p>
+<p>size: 当前哈希表元素个数</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302120664.png" alt="image-20230430212050585"></p>
+<p>modCount: 当前哈希表结构修改次数(元素个数变动才会增加(修改不会)) (插入，删除元素等)</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302121653.png" alt="image-20230430212102597"></p>
+<p>threshold: 扩容阈值，当你哈希表中的元素超过阈值，触发扩容</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302121225.png" alt="image-20230430212148159"></p>
+<p>loadFactor: 负载因子 一般使用默认0.75</p>
+<p>threshlod &#x3D; capacity(当前数组长度) * loadFactory </p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302123111.png" alt="image-20230430212322064"></p>
+<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><ul>
+<li>默认构造方法</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302124358.png" alt="image-20230430212420302"></p>
+<ul>
+<li>自定义大小和负载因子构造方法<ul>
+<li>参数校验<ul>
+<li>判断  0 &lt; 容量 &lt; MAXIMUM_CAPACITY (1 &lt;&lt; 30)</li>
+<li>判断  0 &lt; 负载因子 (这里并没有限制要小于1)</li>
+</ul>
+</li>
+<li>计算扩容阈值tableSizeFor<ul>
+<li>返回一个大于等于当前cap的一个数字，且这一个数一定是2的次方数</li>
+<li><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302138048.png" alt="image-20230430213839985"></li>
+<li>相当于将二进制转换为00011111的形式</li>
+<li>比如n &#x3D; cap (10) -1 &#x3D; 9<ul>
+<li>1001</li>
+</ul>
+</li>
+<li>运算后<ul>
+<li>1111 &#x3D;&gt; 15</li>
+</ul>
+</li>
+<li>+1<ul>
+<li>0001 0000 &#x3D;&gt; 16</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302124701.png" alt="image-20230430212458614"></p>
+<h4 id="链表转换为红黑树时机"><a href="#链表转换为红黑树时机" class="headerlink" title="链表转换为红黑树时机"></a>链表转换为红黑树时机</h4><p>当某一链表长度超过8时，且节点总数大于64时进行红黑树转换</p>
+<h4 id="桶大小为什么必须是2的次方数"><a href="#桶大小为什么必须是2的次方数" class="headerlink" title="桶大小为什么必须是2的次方数"></a>桶大小为什么必须是2的次方数</h4><p>提高性能和拓展性</p>
+<p>性能: hashMap的散列方式是以&amp;运算而不是取余运算的</p>
+<p>拓展性: 计算索引位置时只需要将hashCode &amp; (length -1)即可</p>
+<p>使用2的幂次方作为哈希表的大小还可以方便地进行动态扩容。当哈希表中的元素数量达到一定阈值时，可以创建一个新的哈希表，将所有的元素重新哈希到新的数组中。由于哈希表大小是2的幂次方，因此在重新哈希时可以直接对元素的哈希码进行位运算，而无需进行除法运算，从而提高了性能。</p>
+<h4 id="hash方法"><a href="#hash方法" class="headerlink" title="hash方法"></a>hash方法</h4><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202304302053562.png" alt="image-20230430205347504"></p>
+<p>散列函数，先判断是否为null值，null值直接hash值为0</p>
+<p>否则将key的hashCode异或key的hashCode的高16位(右移16位)</p>
+<p>将高位和低位的hashCode做异或操作，目的是为了让hash值更加散列</p>
+<p>向hashmap 中put null值时会放在0索引位置</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021441259.png" alt="image-20230502144105035"></p>
+<p><strong>目的: 为了让低16位包含高16位的特征</strong></p>
+<p>原因: 由于hashtable 是一个数组 初始未扩容时hashtable的长度length较小</p>
+<p>而路由算法是hashCode &amp; (table.length - 1)</p>
+<p>例如length只有 16 - 1 &#x3D;&gt; 15</p>
+<p>0000 0000 0000 0000 0000 0000 000 1111</p>
+<p>此时做&amp;运算就只有后4位</p>
+<h4 id="路由算法"><a href="#路由算法" class="headerlink" title="路由算法"></a>路由算法</h4><p>就是如何将hashCode散列到散列表中</p>
+<p>hashCode &amp; (table.length - 1)</p>
+<h4 id="put操作"><a href="#put操作" class="headerlink" title="put操作"></a>put操作</h4><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021514283.png" alt="image-20230502151415205"></p>
+<ul>
+<li>计算key的hashcode</li>
+<li>调用putVal方法<ul>
+<li>参数:<ul>
+<li>hash (key的hahs值)</li>
+<li>key</li>
+<li>value</li>
+<li>onlyIfAbsent 只有不存在才put(用在putIfAbsent)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021517999.png" alt="image-20230502151706906"></p>
+<p>变量作用:</p>
+<p>tab 当前hashMap的散列表</p>
+<p>p: 当前三列表的元素</p>
+<p>n: 表示当前散列表的长度</p>
+<p>i: 表示路由寻找结果</p>
+<ul>
+<li><p>先判断tab是否为null或散列表长度为0 (延迟初始化逻辑)</p>
+<ul>
+<li>进行初始化(扩容)</li>
+</ul>
+</li>
+<li><p>判断当前所需hash槽是否为空</p>
+<ul>
+<li>不存在<ul>
+<li>则直接在该hash槽放入一个Node</li>
+</ul>
+</li>
+<li>存在则<ul>
+<li>局部变量: e: node 记录是否存在相同元素 K 临时的key</li>
+<li>判断桶头部结合hash值是否相等，且key是否相同( &#x3D;&#x3D; || equals操作)<ul>
+<li>相同则将头结点赋值给e</li>
+</ul>
+</li>
+<li>判断头结点是否为树形节点</li>
+<li>判断是否是链表节点<ul>
+<li>遍历链表并记录链表长度</li>
+<li>若节点后继为null(迭代到最后一个元素时)新建一个节点连接并结束<ul>
+<li>判断链表长度是否达到树化阈值</li>
+</ul>
+</li>
+<li>若找到相同节点则break</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>判断e是否为null(如果是链表不存在该节点的话(插入操作)e会指向null)<ul>
+<li>不为null说明需要进行节点替换</li>
+<li>为null且onlyIfAbsent 为false或旧元素值为null则进行替换操作<ul>
+<li>替换完成直接返回旧值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>判断元素容量是否达到扩容阈值</p>
+</li>
+<li><p>modCount++ (只有插入操作++了，替换操作已经在前面返回了)</p>
+</li>
+<li><p>达到则调用resize()扩容</p>
+</li>
+</ul>
+<h4 id="核心resize-扩容方法"><a href="#核心resize-扩容方法" class="headerlink" title="核心resize()扩容方法"></a>核心resize()扩容方法</h4><p>扩容目的: 为了解决哈希冲突导致的链化严重影响查询效率的问题，哈希表的预期时间复杂度是O(1)，如果链化严重可能会退化为O(n) 所有有必要在合适的时候对哈希表进行扩容和rehash操作</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 初始化或加倍表大小。如果为空，则根据字段阈值中保持的初始容量目标进行分配。否则，因      * 为我们使用的是二次幂展开，所以每个bin中的元素必须保持在同一索引处，或者在新表中以      * 二次幂偏移量移动</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> the table</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">    Node&lt;K,V&gt;[] oldTab = table;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldCap</span> <span class="operator">=</span> (oldTab == <span class="literal">null</span>) ? <span class="number">0</span> : oldTab.length;</span><br><span class="line">    <span class="type">int</span> <span class="variable">oldThr</span> <span class="operator">=</span> threshold;</span><br><span class="line">    <span class="type">int</span> newCap, newThr = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (oldCap &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt;= MAXIMUM_CAPACITY) &#123;</span><br><span class="line">            threshold = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">return</span> oldTab;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;</span><br><span class="line">                 oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">            newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// double threshold</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>) <span class="comment">// initial capacity was placed in threshold</span></span><br><span class="line">        newCap = oldThr;</span><br><span class="line">    <span class="keyword">else</span> &#123;               <span class="comment">// zero initial threshold signifies using defaults</span></span><br><span class="line">        newCap = DEFAULT_INITIAL_CAPACITY;</span><br><span class="line">        newThr = (<span class="type">int</span>)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (newThr == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">float</span> <span class="variable">ft</span> <span class="operator">=</span> (<span class="type">float</span>)newCap * loadFactor;</span><br><span class="line">        newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="type">float</span>)MAXIMUM_CAPACITY ? (<span class="type">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    threshold = newThr;</span><br><span class="line">    <span class="meta">@SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;)</span></span><br><span class="line">    Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> <span class="title class_">Node</span>[newCap];</span><br><span class="line">    table = newTab;</span><br><span class="line">    <span class="keyword">if</span> (oldTab != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; oldCap; ++j) &#123;</span><br><span class="line">            Node&lt;K,V&gt; e;</span><br><span class="line">            <span class="keyword">if</span> ((e = oldTab[j]) != <span class="literal">null</span>) &#123;</span><br><span class="line">                oldTab[j] = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">if</span> (e.next == <span class="literal">null</span>)</span><br><span class="line">                    newTab[e.hash &amp; (newCap - <span class="number">1</span>)] = e;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                    ((TreeNode&lt;K,V&gt;)e).split(<span class="built_in">this</span>, newTab, j, oldCap);</span><br><span class="line">                <span class="keyword">else</span> &#123; <span class="comment">// preserve order</span></span><br><span class="line">                    Node&lt;K,V&gt; loHead = <span class="literal">null</span>, loTail = <span class="literal">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; hiHead = <span class="literal">null</span>, hiTail = <span class="literal">null</span>;</span><br><span class="line">                    Node&lt;K,V&gt; next;</span><br><span class="line">                    <span class="keyword">do</span> &#123;</span><br><span class="line">                        next = e.next;</span><br><span class="line">                        <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;</span><br><span class="line">                            <span class="keyword">if</span> (loTail == <span class="literal">null</span>)</span><br><span class="line">                                loHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                loTail.next = e;</span><br><span class="line">                            loTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">if</span> (hiTail == <span class="literal">null</span>)</span><br><span class="line">                                hiHead = e;</span><br><span class="line">                            <span class="keyword">else</span></span><br><span class="line">                                hiTail.next = e;</span><br><span class="line">                            hiTail = e;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; <span class="keyword">while</span> ((e = next) != <span class="literal">null</span>);</span><br><span class="line">                    <span class="keyword">if</span> (loTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                        loTail.next = <span class="literal">null</span>;</span><br><span class="line">                        newTab[j] = loHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (hiTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                        hiTail.next = <span class="literal">null</span>;</span><br><span class="line">                        newTab[j + oldCap] = hiHead;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newTab;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>变量解释</p>
+<ul>
+<li>oldTab： 扩容前的哈希表</li>
+<li>oldCap：扩容之前那的table数组的长度 </li>
+<li>oldThr：扩容之前的扩容阈值(触发本次扩容的阈值)</li>
+<li>newCap：扩容之后table数组的大小</li>
+<li>newThr：扩容之后下次再触发扩容的条件</li>
+</ul>
+</li>
+<li><p>扩容流程</p>
+<ul>
+<li>判断Table是否为null (未初始化的情况) 是则oldCap &#x3D; 0 不是则等于当前table.length</li>
+</ul>
+</li>
+<li><p>计算newCap和newThr的值</p>
+</li>
+<li><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305021648667.png" alt="image-20230502164835539"></p>
+<ul>
+<li>判断oldCap是否大于0<ul>
+<li>是则说明散列表已初始化过，这是一次正常的扩容操作<ul>
+<li>判断是否大于最大大小(2^30)(不能再次扩容)<ul>
+<li>是<ul>
+<li>设置下次扩容条件为int最大值(使元素数量无法达到)</li>
+<li>返回当前表</li>
+</ul>
+</li>
+<li>否 (新容量小于2^30且大于等于16(初始化赋值大小为2 4 8的情况))<ul>
+<li>新容量为旧容量2倍(旧容量左移1位)</li>
+<li>新扩容阈值为旧扩容阈值2倍(旧)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>&#x3D;0则<ul>
+<li>若下次扩容大小已赋值(调用非空构造方法)</li>
+<li>否则赋默认值</li>
+<li>容量16 扩容大小12</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>判断newThr(扩容大小)是否为0<ul>
+<li>是则说明初始化了小于16的桶，或是新容量大于最大容量的情况</li>
+<li>计算newCap * loadFactor 并判断是否超过最大2^30 是的话赋int最大值</li>
+</ul>
+</li>
+<li>赋值threshold为计算出来的下次扩容阈值</li>
+</ul>
+</li>
+<li><p>创建新的数组[newCap]</p>
+<ul>
+<li>判断旧数组为null(未初始化)<ul>
+<li>return newTable</li>
+</ul>
+</li>
+<li>不为null rehash操作<ul>
+<li>遍历旧桶位，只处理非空头结点<ul>
+<li>判断头结点是否为单独节点，是则直接rehash到新桶位</li>
+<li>为树节点则调用树拆分方法<ul>
+<li>拆分为高位树和低位树</li>
+</ul>
+</li>
+<li>为链表节点则进行链表拆分<ul>
+<li>由于hash表为2倍扩容，例如16 &#x3D;&gt; 32<ul>
+<li>此时15和31索引后四位相同，可以计算链表元素的hash将他们散列到低位和高位桶中</li>
+<li>通过当前key &amp; oldCap &#x3D;&#x3D; 0 ? 低位链表:高位链表 划分高低位链表</li>
+</ul>
+</li>
+<li>判断低位链表是否为null<ul>
+<li>不为空则将低位链表放到桶中</li>
+</ul>
+</li>
+<li>判断高位链表是否为null<ul>
+<li>不为空则将高位链表放到桶中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h3><h3 id="ProiorityQueue"><a href="#ProiorityQueue" class="headerlink" title="ProiorityQueue"></a>ProiorityQueue</h3><h3 id="SynchronizedMap"><a href="#SynchronizedMap" class="headerlink" title="SynchronizedMap"></a>SynchronizedMap</h3><p>是Collections包内提供的一个线程安全的map，创建方式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Object, Object&gt; synchronizedMap = Collections.synchronizedMap(<span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;());</span><br></pre></td></tr></table></figure>
+
+
+
+<p>实现方式是内部类SynchronziedMap</p>
+<p>同步的方式使用的是一个变量mutex</p>
+<p>几乎所有的方法都使用了synchronzied(mutex)代码块申请mutex变量来实现锁</p>
+<p>锁的粒度是整个map</p>
+<h2 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h2><h3 id="currentHashMap源码分析"><a href="#currentHashMap源码分析" class="headerlink" title="currentHashMap源码分析"></a>currentHashMap源码分析</h3>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/MySQL/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JVM/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JUC/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2023/06/09/JUC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.616Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.604Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.600Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.595Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.591Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -392,8 +727,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

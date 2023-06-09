@@ -6,15 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="JUC线程同步join方法 当一个线程需要调用其他线程的结果则使用 join方法 1234567891011121314151617181920212223242526package org.example.threadTest;&#x2F;** * Description: * Param: * return: * Author: wzf * Date: 2023&#x2F;5&#x2F;7 *&#x2F;public class T">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2023/06/09/JUC/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JUC线程同步join方法 当一个线程需要调用其他线程的结果则使用 join方法 1234567891011121314151617181920212223242526package org.example.threadTest;&#x2F;** * Description: * Param: * return: * Author: wzf * Date: 2023&#x2F;5&#x2F;7 *&#x2F;public class T">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305072207489.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305031427286.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305031440332.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305031550026.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071725796.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071727903.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071727535.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071756078.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141648882.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141650673.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141652864.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141653659.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141739796.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141740586.png">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/PicGo/202305150447848.png">
+<meta property="article:published_time" content="2023-06-09T12:25:51.620Z">
+<meta property="article:modified_time" content="2023-05-21T08:56:35.147Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305072207489.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -140,235 +160,370 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JUC" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JUC"><a href="#JUC" class="headerlink" title="JUC"></a>JUC</h1><h2 id="线程同步"><a href="#线程同步" class="headerlink" title="线程同步"></a>线程同步</h2><p>join方法</p>
+<p>当一个线程需要调用其他线程的结果则使用 join方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.threadTest;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * Param:</span></span><br><span class="line"><span class="comment"> * return:</span></span><br><span class="line"><span class="comment"> * Author: wzf</span></span><br><span class="line"><span class="comment"> * Date: 2023/5/7</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestJoin</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line">            a = <span class="number">100</span>;</span><br><span class="line">        &#125;,<span class="string">&quot;t1&quot;</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">        t1.join();</span><br><span class="line">        System.out.println(a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>多线程同步问题</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305072207489.png" alt="image-20230507220729404"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.threadTest;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * Param:</span></span><br><span class="line"><span class="comment"> * return:</span></span><br><span class="line"><span class="comment"> * Author: wzf</span></span><br><span class="line"><span class="comment"> * Date: 2023/5/7</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestJoin</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">b</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line">            a = <span class="number">100</span>;</span><br><span class="line">        &#125;,<span class="string">&quot;t1&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line">            b = <span class="number">100</span>;</span><br><span class="line">        &#125;,<span class="string">&quot;t2&quot;</span>);</span><br><span class="line">        t1.start();</span><br><span class="line">        t2.start();</span><br><span class="line">        t1.join();</span><br><span class="line">        t2.join();</span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        System.out.println(end-start);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>等待时间为2秒</p>
+<p>join方法可以接受一个参数作为最长等待时间</p>
+<h2 id="Interrupt"><a href="#Interrupt" class="headerlink" title="Interrupt"></a>Interrupt</h2><p>线程打断</p>
+<ul>
+<li>打断休眠线程会抛出异常</li>
+<li>打断正在运行的线程只会改变isInterrupted值为true 需要程序员获取这个状态值然后手动处理</li>
+<li></li>
+</ul>
+<h2 id="Synchronized锁膨胀机制"><a href="#Synchronized锁膨胀机制" class="headerlink" title="Synchronized锁膨胀机制"></a>Synchronized锁膨胀机制</h2><h3 id="面试表述"><a href="#面试表述" class="headerlink" title="面试表述"></a>面试表述</h3><p>synchronized是java提供的一个关键字，可以在方法或以synchronized代码块的形式使用。使用synchronized在jdk1.6之前只会加重量级锁，性能很差。1.8之后进行了优化，新增了偏向锁了轻量级锁。synchronized是基于对象头实现的，对象头中的后两位用于标识锁类型，偏向锁还需借助倒数第三位来表示，为0则是无锁状态，为1则是偏向锁状态，具体对应是偏向锁为01，轻量级锁为00，重量级锁为10，顺便提一下11状态时被gc标记的状态。</p>
+<p>对于不同的锁对象头中前部记录的信息也不同，无锁状态前部记录的是markword，偏向锁记录的是线程id，轻量级锁记录的是lock record，重量级锁记录的是moniter对象的指针</p>
+<p>先来说下偏向锁吧，偏向锁就是在运行的过程中将对象的锁偏向于某一个线程，在对象头中记录线程id。偏向锁有一个延迟启动的机制，在程序启动30秒后才会开始加偏向锁，具体是30秒前创建出来的对象都会是无锁对象，此时加锁会直接加轻量级锁，30s后创建出来的对象时匿名偏向状态，线程id部分均为0，此时加锁会加偏向锁。偏向锁的升级有多种情况，首先是线程A加锁并释放后，此时B线程对对象加锁，此时会直接升级为轻量级锁。但偏向锁有个重偏向机制，当这个锁对应类的对象过多触发升级操作时，也就是升级为轻量级锁的操作时，默认是19次，第20次起会触发批量重偏向机制，具体实现是通过Class类中的epoch，加锁时会比较类epoch和class的epoch，若不相等，哪怕此对象已经偏向了一个线程，此时对新的该类的对象加锁时会修改偏向锁id，也就是重偏向为新的线程，而不是升级为轻量级锁，当锁升级次数超过39次，低40次开始，会触发批量撤销操作，后续创建出来的对象都是无锁对象，也就是不使用偏向锁优化。</p>
+<p>再说下轻量级锁，轻量级锁依赖于lock record存在，当加轻量级锁时就会在栈中生成一个lock record，并将原对象头中的数据交换到lock record中。当锁重入时，继续插入lock record，但lockreocrd中的对象头为空，当解锁时就弹出一个lockreord，若对象头为空则直接弹出，不为空则尝试CAS交换lockrecord中的对象头和对象的对象头，若交换失败则进入重量级锁解锁流程(说明已经升级成了重量级锁)。</p>
+<p>重量级锁是基于操作系统提供的一个Monitor对象来实现的，由于进程切换需要切换到内核态，是一个耗时操作，所以性能较差。重量级锁需要维护一个Monitor对象，其中包括，waitSet等待队列,EntrySet阻塞队列，Owner锁持有线程，当有其他线程尝试加锁时会放入entrySet，当owner线程释放锁时，就会根据策略唤醒EntrySet中的线程，并将owner置为空。当线程获取锁对象时，尝试CAS将owner修改为当前线程。具体的线程唤醒策略是根据虚拟机的实现来决定的，HotSpot中的实现是FIFO原则</p>
+<h3 id="锁的状态"><a href="#锁的状态" class="headerlink" title="锁的状态"></a>锁的状态</h3><p>无锁</p>
+<p>偏向锁</p>
+<p>轻量级锁</p>
+<p>重量级锁</p>
+<h3 id="jdk1-6以前"><a href="#jdk1-6以前" class="headerlink" title="jdk1.6以前"></a>jdk1.6以前</h3><p>性能较差，加的都是重量级锁，每个对象乣维护一个Monitro管程对象，管程对象需要维护一个Mutex互斥量对象，Mutex是由操作系统内部的pthread线程库维护的。上锁需要通过JVM从用户态切换到内核态来调用底层操作系统的指令，性能较差</p>
+<h3 id="Jdk1-6以后"><a href="#Jdk1-6以后" class="headerlink" title="Jdk1.6以后"></a>Jdk1.6以后</h3><p>会根据当前线程的竞争激烈程度，设计了不同的效果的锁</p>
+<h3 id="对象头"><a href="#对象头" class="headerlink" title="对象头"></a>对象头</h3><p>对象加载过程</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305031427286.png" alt="image-20230503142735119"></p>
+<p>对象头中包含: 类元信息，对象哈希值，对象年龄，说状态标志</p>
+<p>对头包含两个部分</p>
+<ul>
+<li><p>MarkWord</p>
+<ul>
+<li>主要用来表示对象的线程锁状态，另外还可以用来配合GC、存放该对象的HashCode</li>
+</ul>
+</li>
+<li><p>Klass Pointer</p>
+<ul>
+<li>指向方法区中的Class信息的指针，意味着该对象可以随时知道自己是哪个Class的实例</li>
+</ul>
+</li>
+<li><p>32位虚拟机</p>
+<ul>
+<li>对象头中的MarkWord字段(32位)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305031440332.png" alt="image-20230503144008277"></p>
+<ul>
+<li><p>​	对象头中的类型指针(Klass Pointer)(32位)</p>
+</li>
+<li><p>64位虚拟机</p>
+<ul>
+<li>对象头中的MarkWord(64位)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305031550026.png" alt="img"></p>
+<p>类型指针用于指向元空间当前类的类元信息。比如调用类中的方法，通过类型指针找到元空间中的该类，再找到相应的方法</p>
+<h3 id="无锁状态"><a href="#无锁状态" class="headerlink" title="无锁状态"></a>无锁状态</h3><p>当对象被创建出来时，在线程获取该对象锁之前，对象处于无锁状态</p>
+<p>与偏向锁的区别在于倒数第三位是否为1</p>
+<p>为0则是无锁状态 且不可偏向 加锁直接加轻量级锁</p>
+<p>为1且hashcode位置0则说明处于匿名偏向状态</p>
+<p>为0则说明处于无锁不可偏向状态，此时加锁会直接加轻量级锁</p>
+<p>这样创建出来的对象就会处于<strong>匿名偏向</strong>状态</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071725796.png" alt="image-20230507172527588"></p>
+<p>否则为无锁不可偏向状态</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071727903.png" alt="image-20230507172731849"></p>
+<p>且加锁直接加轻量级锁</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071727535.png" alt="image-20230507172713473"></p>
+<h3 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h3><p>偏向锁默认开启，创建对象后，markword值为0x05即最后3位为101，这是他的thread,epoch都为0(对象处于匿名偏向状态)</p>
+<p>偏向锁默认是延迟的，不会再程序启动时立即生效，可以通过vm参数<code>-XX:BiasedLockingStartupDelay=0</code>关闭延迟(默认30s开启)</p>
+<p>禁用偏向锁 <code>--xx: UseBiasedLocking</code></p>
+<p>开启偏向锁且过了延迟时间之后创建的所有创建出来的对象都处于匿名偏向状态</p>
+<p>偏向状态调用hashcode会撤销偏向状态</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305071756078.png" alt="image-20230503150407351"></p>
+<p>偏向锁释放后 仍会记录当前线程id</p>
+<h4 id="偏向锁撤销"><a href="#偏向锁撤销" class="headerlink" title="偏向锁撤销"></a>偏向锁撤销</h4><ul>
+<li>调用hashcode撤销偏向状态</li>
+<li>出现其他线程获取锁时，撤销偏向锁并加轻量级锁 锁释放后变为无锁状态</li>
+</ul>
+<h4 id="重偏向"><a href="#重偏向" class="headerlink" title="重偏向"></a>重偏向</h4><p>注意这里是对某一个类来说的，对于其他的类不影响</p>
+<p>当撤销次数超过19次时(第20次开始)，后续触发偏向锁撤销时会进行重偏向操作，即不加轻量级锁，只是将线程id改为当前线程id(仍为偏向锁状态)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.threadTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.openjdk.jol.info.ClassLayout;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * Param:</span></span><br><span class="line"><span class="comment"> * return:</span></span><br><span class="line"><span class="comment"> * Author: wzf</span></span><br><span class="line"><span class="comment"> * Date: 2023/5/8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestReBiased</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        List&lt;Object&gt; locks = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(<span class="number">30</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;i&lt;<span class="number">30</span>;i++)&#123;</span><br><span class="line">            locks.add(<span class="keyword">new</span> <span class="title class_">Object</span>());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">for</span>(Object lock : locks)&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (lock)&#123;</span><br><span class="line">                    System.out.println(ClassLayout.parseInstance(lock).toPrintable());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        t1.start();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                t1.join();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(<span class="string">&quot;-----------------t2-----------------&quot;</span>);</span><br><span class="line">            <span class="keyword">for</span>(Object lock:locks)&#123;</span><br><span class="line">                <span class="keyword">synchronized</span> (lock)&#123;</span><br><span class="line">                    System.out.println(ClassLayout.parseInstance(lock).toPrintable());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="批量撤销"><a href="#批量撤销" class="headerlink" title="批量撤销"></a>批量撤销</h4><p>当撤销撤销偏向锁阈值超过40次后(第40次开始)，会对整个类的所有对象都变为不可偏向，新建的对象也是不可偏向的</p>
+<h3 id="HashCode对锁状态的影响"><a href="#HashCode对锁状态的影响" class="headerlink" title="HashCode对锁状态的影响"></a>HashCode对锁状态的影响</h3><p>由于无锁状态hashcode记录在对象头中，而偏向锁，轻量级锁，重量级锁占用相同位置记录线程id或锁记录位置，在不同时刻调用hashcode方法会对上锁的策略产生影响</p>
+<p>在无锁不可偏向状态时，调用后填入对象头指定位置</p>
+<p>在无锁可偏向未偏向(匿名偏向)，调用后变为不可偏向状态，结束后转为无锁态</p>
+<p>在偏向状态直接升级为重量级锁，解锁后仍为重量级锁</p>
+<h3 id="轻量级锁"><a href="#轻量级锁" class="headerlink" title="轻量级锁"></a>轻量级锁</h3><p>轻量级锁的使用场景:如果一个对象虽然有多线程访问，但多线程访问的时间是错开的，那么可以使用轻量级锁来优化</p>
+<p>加轻量级锁流程</p>
+<ul>
+<li>先在轻量级锁栈帧中设置一个Lock Record锁记录对象</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141648882.png" alt="image-20230514164855778"></p>
+<ul>
+<li><p>交换所记录和对象头中的markword</p>
+<ul>
+<li>如果CAS替换成功，后两位变为000</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141650673.png" alt="image-20230514165033606"></p>
+</li>
+<li><p>如果CAS替换失败</p>
+<ul>
+<li>如果是其他线程已经持有了Object的轻量级锁，说明此时有竞争，进入锁膨胀过程</li>
+<li>如果是synchroinzed锁重入，那么再添加一条lock record作为重入的计数</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141652864.png" alt="image-20230514165239803"></p>
+</li>
+<li><p>当退出synchroinzed代码块(解锁时)</p>
+<ul>
+<li><p>如果取值为null 的锁记录，表示有重入，这是重置锁记录，表示重入计数-1</p>
+</li>
+<li><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141653659.png" alt="image-20230514165338590"></p>
+</li>
+<li><p>​	如果不为null，这时使用CAS将mark word的值恢复给对象头</p>
+<ul>
+<li>成功，解锁成功</li>
+<li>失败，说明轻量级锁进行了锁膨胀或已经升级为重量级锁，进入重量级锁解锁流程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Monitor对象"><a href="#Monitor对象" class="headerlink" title="Monitor对象"></a>Monitor对象</h3><p>翻译成为监视器或者管程</p>
+<p>每个java对象都可以关联一个Monitor对象(操作系统提供)，如果使用synchronized给对象上锁(重量级)之后，改对象头的Mark Word中就被设置指向Monitor对象的指针</p>
+<blockquote>
+<p>结构</p>
+</blockquote>
+<ul>
+<li>WaitSet<ul>
+<li>等待队列</li>
+</ul>
+</li>
+<li>EntryList<ul>
+<li>阻塞队列</li>
+</ul>
+</li>
+<li>Owner<ul>
+<li>锁持有者</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141739796.png" alt="image-20230514173938715"></p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305141740586.png" alt="image-20230514174019512"></p>
+<h3 id="重量级锁"><a href="#重量级锁" class="headerlink" title="重量级锁"></a>重量级锁</h3><ul>
+<li>加轻量级锁失败时，进入锁膨胀流程</li>
+<li>即为Object对象申请Monitor锁，让markword指向重量级锁地址 并改为10重量级锁状态<ul>
+<li>将Monitor对象的owner持有者设置为当前轻量级锁持有线程</li>
+</ul>
+</li>
+<li>然后自己进入Monitor的EntryList BLOCKED</li>
+<li>当原轻量级锁对象释放锁时<ul>
+<li>尝试cas替换Mark word失败 进入重量级锁解锁流程</li>
+<li>将owner设置为null</li>
+<li>唤醒阻塞列表中的线程</li>
+</ul>
+</li>
+</ul>
+<h4 id="重量级锁的自旋优化"><a href="#重量级锁的自旋优化" class="headerlink" title="重量级锁的自旋优化"></a>重量级锁的自旋优化</h4><p>在发现重量级锁锁定时会进行一段时间的自旋重试，若失败才进入阻塞队列</p>
+<p>避免进入阻塞队列后再唤醒的开销过大</p>
+<p>自旋是自适应的，若刚刚一次自旋操作成功过，那么认为自旋成功率高，则多自旋几次，反之就少自旋，甚至不自旋</p>
+<h2 id="CAS自旋锁"><a href="#CAS自旋锁" class="headerlink" title="CAS自旋锁"></a>CAS自旋锁</h2><p>CAS(compare and swap)比较并交换</p>
+<p>CAS机制当中使用了3个基本操作数：<strong>内存地址V</strong>，<strong>旧的预期值A</strong>，<strong>要修改的新值B</strong>。</p>
+<p>更新一个变量时，只有当预期值A和内存地址V中的实际值相同时，才会将内存地址对应的值修改为B。</p>
+<p>如果发现不一致，则会重新进行尝试，这个尝试的过程被称为<strong>自旋</strong>。</p>
+<p>没有线程的等待和唤醒的开销</p>
+<blockquote>
+<p>CAS优点</p>
+</blockquote>
+<p>性能好，java层面无锁的状态</p>
+<p>但在JVM层面是有锁的 cmpxchg</p>
+<blockquote>
+<p>CAS缺点</p>
+</blockquote>
+<ul>
+<li>短暂时间CPU飙升<ul>
+<li>目的是为了占着CPU的资源不释放，等到获取到锁立即进行处理。在高并发的情况下，如果多个线程同时更新一个值不成功，就会一直自旋，增大cpu压力。</li>
+</ul>
+</li>
+<li>ABA问题(可以通过加版本号解决)<ul>
+<li>对于某一个数据，有一个线程将它操作之后又恢复原状，而我们无法分辨</li>
+</ul>
+</li>
+<li>只能保证一个变量的原子性，如果需要保证多个变量或者代码块的原子性需要使用synchronized</li>
+</ul>
+<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.quanta.consumer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.junit.Before;</span><br><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> rx.internal.util.unsafe.UnsafeAccess;</span><br><span class="line"><span class="keyword">import</span> sun.misc.Unsafe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConsumerApplicationTests</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">contextLoads</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">testCAS</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">CAS</span> <span class="variable">cas</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CAS</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">10</span>; j++) &#123;</span><br><span class="line">                    System.out.println(cas.increase());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">        Thread.sleep(<span class="number">10000</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;结果:&quot;</span> + cas.getValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CAS</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> value;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">long</span> offset;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Unsafe unsafe;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">Field</span> <span class="variable">theUnsafe</span> <span class="operator">=</span> Unsafe.class.getDeclaredField(<span class="string">&quot;theUnsafe&quot;</span>);</span><br><span class="line">            theUnsafe.setAccessible(<span class="literal">true</span>);</span><br><span class="line">            unsafe = (Unsafe) theUnsafe.get(<span class="literal">null</span>);</span><br><span class="line">            offset = unsafe.objectFieldOffset(CAS.class.getDeclaredField(<span class="string">&quot;value&quot;</span>));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getValue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">increase</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (; ; ) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">next</span> <span class="operator">=</span> getValue() + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (unsafe.compareAndSwapInt(<span class="built_in">this</span>, offset, value, next)) &#123;</span><br><span class="line">                <span class="keyword">return</span> next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="JUC提供的CAS操作封装"><a href="#JUC提供的CAS操作封装" class="headerlink" title="JUC提供的CAS操作封装"></a>JUC提供的CAS操作封装</h3><h4 id="原子整数"><a href="#原子整数" class="headerlink" title="原子整数"></a>原子整数</h4><p>AtomicBollean</p>
+<p>AtomitInteger</p>
+<p>AtomicLong</p>
+<h2 id="CLH自旋锁"><a href="#CLH自旋锁" class="headerlink" title="CLH自旋锁"></a>CLH自旋锁</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzAwMDczMjMwOQ==&mid=2247484130&idx=1&sn=a5b7dcd4f0d019cd53fdacaccea1e139&chksm=9ae53f18ad92b60e0dd2254325d0b2dca8823f9705dcd1f801b747d06d34c3770b8e14269177&scene=27">资料</a></p>
+<p>确保无饥饿性，提供先来先服务的公平性</p>
+<p>基于链表的可扩展、高性能、公平的自旋锁，申请线程只在本地变量上自旋，它不断轮询前驱的状态，如果发现前驱释放了锁就结束自旋。</p>
+<p>加锁原理</p>
+<p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/PicGo/202305150447848.png" alt="图片"></p>
+<blockquote>
+<p>代码实现</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.threadTest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicReference;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description:</span></span><br><span class="line"><span class="comment"> * Param:</span></span><br><span class="line"><span class="comment"> * return:</span></span><br><span class="line"><span class="comment"> * Author: wzf</span></span><br><span class="line"><span class="comment"> * Date: 2023/4/1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CLH</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 同步结点</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">CLHNode</span> &#123;</span><br><span class="line">        <span class="comment">// 标识是否持有锁</span></span><br><span class="line">        <span class="keyword">volatile</span> <span class="type">boolean</span> <span class="variable">locked</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 尾结点</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> AtomicReference&lt;CLHNode&gt; tailNode;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 前驱结点</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ThreadLocal&lt;CLHNode&gt; predNode;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当前结点</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> ThreadLocal&lt;CLHNode&gt; curNode;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">CLH</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 放入一个空的头结点</span></span><br><span class="line">        tailNode = <span class="keyword">new</span> <span class="title class_">AtomicReference</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">CLHNode</span>());</span><br><span class="line">        <span class="comment">// 重写初始化方法 当使用get是若不存在对象则new一个</span></span><br><span class="line">        curNode = <span class="keyword">new</span> <span class="title class_">ThreadLocal</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">protected</span> Object <span class="title function_">initialValue</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">CLHNode</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        predNode = <span class="keyword">new</span> <span class="title class_">ThreadLocal</span>&lt;&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">lock</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 获取当前线程存储的当前节点</span></span><br><span class="line">        <span class="comment">// 触发initialValue方法 返回一个新的currentNode节点</span></span><br><span class="line">        <span class="type">CLHNode</span> <span class="variable">currNode</span> <span class="operator">=</span> curNode.get();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 设为true 标识一个有效状态</span></span><br><span class="line">        currNode.locked = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 替换尾结点为当前节点并返回 前驱结点 原子操作</span></span><br><span class="line">        <span class="type">CLHNode</span> <span class="variable">preNode</span> <span class="operator">=</span> tailNode.getAndSet(currNode);</span><br><span class="line">        <span class="comment">// 将前驱结点设置为旧的尾结点</span></span><br><span class="line">        predNode.set(preNode);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果前驱结点占用锁</span></span><br><span class="line">        <span class="keyword">while</span> (preNode.locked) &#123;</span><br><span class="line"><span class="comment">//            System.out.println(&quot;线程&quot; + Thread.currentThread().getName() + &quot;没能获取到锁，自旋中&quot;);</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;线程&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;获取到锁&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">unlock</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">// 获取当前线程的当前结点</span></span><br><span class="line">        <span class="type">CLHNode</span> <span class="variable">node</span> <span class="operator">=</span> curNode.get();</span><br><span class="line">        <span class="comment">// 解锁操作</span></span><br><span class="line">        node.locked = <span class="literal">false</span>;</span><br><span class="line">        System.out.println(<span class="string">&quot;线程&quot;</span> + Thread.currentThread().getName() + <span class="string">&quot;释放了锁&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 后两句的作用</span></span><br><span class="line">        <span class="comment">// 防止自身线程重复加锁时</span></span><br><span class="line">        <span class="comment">// 1.先将当前节点状态设为持有锁</span></span><br><span class="line">        <span class="comment">// 2.尾结点此时指向当前结点</span></span><br><span class="line">        <span class="comment">// 3.自旋等待当前结点</span></span><br><span class="line">        <span class="comment">// 4.导致始终阻塞</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 解决方案</span></span><br><span class="line">        <span class="comment">// 将当前结点重新初始化</span></span><br><span class="line">        <span class="type">CLHNode</span> <span class="variable">newCurNode</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CLHNode</span>();</span><br><span class="line">        curNode.set(newCurNode);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">TestCLH</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">CLH</span> <span class="variable">clh</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CLH</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                clh.lock();</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;开始处理数据(2s)&quot;</span>);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">2000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">                &#125;</span><br><span class="line">                clh.unlock();</span><br><span class="line">            &#125;, <span class="string">&quot;[线程&quot;</span> + i + <span class="string">&quot;]&quot;</span>).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2 id="AQS"><a href="#AQS" class="headerlink" title="AQS"></a>AQS</h2><h3 id="ReentrantLock"><a href="#ReentrantLock" class="headerlink" title="ReentrantLock"></a>ReentrantLock</h3><p>可重入锁和公平锁</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/MySQL/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/06/09/JUC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JVM/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JUC/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2023/06/09/JVM/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.616Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.604Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.600Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.595Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.591Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -392,8 +547,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

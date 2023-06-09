@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="设计模式简介设计模式是一种在软件设计中广泛应用的最佳实践和经验总结，它们提供了解决常见设计问题的可重用解决方案。设计模式可以帮助开发人员更好地组织和设计代码，使其更具可读性、可扩展性和可维护性。 设计模式通常分为三种类型：创建型模式（Creational Patterns）、结构型模式（Structural Patterns）和行为型模式（Behavioral Patterns）。  创建型模式（">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="设计模式简介设计模式是一种在软件设计中广泛应用的最佳实践和经验总结，它们提供了解决常见设计问题的可重用解决方案。设计模式可以帮助开发人员更好地组织和设计代码，使其更具可读性、可扩展性和可维护性。 设计模式通常分为三种类型：创建型模式（Creational Patterns）、结构型模式（Structural Patterns）和行为型模式（Behavioral Patterns）。  创建型模式（">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-06-09T12:25:51.600Z">
+<meta property="article:modified_time" content="2023-06-09T08:01:56.385Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -140,235 +144,242 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-设计模式" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>设计模式是一种在软件设计中广泛应用的最佳实践和经验总结，它们提供了解决常见设计问题的可重用解决方案。设计模式可以帮助开发人员更好地组织和设计代码，使其更具可读性、可扩展性和可维护性。</p>
+<p>设计模式通常分为三种类型：创建型模式（Creational Patterns）、结构型模式（Structural Patterns）和行为型模式（Behavioral Patterns）。</p>
+<ol>
+<li>创建型模式（Creational Patterns）：<ul>
+<li>工厂方法模式：定义一个创建对象的接口，由子类决定实例化的具体类。</li>
+<li>抽象工厂模式：提供一个接口，用于创建一系列相关或相互依赖的对象。</li>
+<li>单例模式：确保类只有一个实例，并提供全局访问点。</li>
+<li>原型模式：通过复制现有对象来创建新对象，避免了直接使用<code>new</code>关键字创建对象。</li>
+<li>建造者模式：将对象的构建过程与其表示分离，以便相同的构建过程可以创建不同的表示。</li>
+</ul>
+</li>
+<li>结构型模式（Structural Patterns）：<ul>
+<li>适配器模式：将不兼容的类转换为另一个接口以供使用。</li>
+<li>桥接模式：将抽象部分与其实现部分分离，使它们能够独立地变化。</li>
+<li>组合模式：将对象组合成树形结构，以表示部分-整体的层次关系。</li>
+<li>装饰器模式：动态地将责任添加到对象上，同时不改变其接口。</li>
+<li>外观模式：提供一个统一的接口，以简化子系统的使用。</li>
+<li>享元模式：共享细粒度的对象，以减少内存消耗。</li>
+<li>代理模式：控制对其他对象的访问，提供额外的功能。</li>
+</ul>
+</li>
+<li>行为型模式（Behavioral Patterns）：<ul>
+<li>责任链模式：将请求的发送者和接收者解耦，允许多个对象处理请求。</li>
+<li>命令模式：将请求封装为一个对象，以使不同的请求可以队列、记录和执行。</li>
+<li>解释器模式：定义语言的语法，并解释相应的操作。</li>
+<li>迭代器模式：提供一种顺序访问集合对象元素的方法，而不需要暴露其内部表示。</li>
+<li>中介者模式：定义了对象之间的通信方式，通过一个中介对象进行调解。</li>
+<li>备忘录模式：在不破坏封装的情况下，捕获并保存对象的内部状态，以后可以恢复到该状态。</li>
+<li>观察者模式：定义对象之间的一对多依赖关系，使得当一个对象改变状态时，所有依赖它的对象都会得到通知。</li>
+<li>状态模式：允许对象在其内部状态改变时改变其行为。</li>
+<li>策略模式：定义一系列算法，将每个算法封装到可互换的对象中，从而使算法的变化独立于使用它们的客户端。</li>
+<li>模板方法模式：定义一个算法的骨架，将一些步骤的实现延迟到子类中。</li>
+<li>访问者模式：在不改变对象结构的情况下，定义对象新的操作。</li>
+</ul>
+</li>
+</ol>
+<h2 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h2><h3 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h3><p>单例模式是一种创建型设计模式，它确保一个类只有一个实例，并提供全局访问点以获取该实例。单例模式通常在需要共享资源或控制唯一资源的场景中使用。</p>
+<p>单例模式的关键要点如下：</p>
+<ul>
+<li>私有化构造函数：通过将类的构造函数私有化，防止外部直接实例化该类。</li>
+<li>静态方法获取实例：通过提供一个静态方法来获取类的唯一实例，通常命名为 <code>getInstance()</code>。</li>
+<li>延迟初始化：实例的创建可以在首次调用 <code>getInstance()</code> 方法时进行，而不是在类加载时就创建。</li>
+<li>线程安全：在多线程环境下，确保只有一个实例被创建，并提供线程安全的访问。</li>
+</ul>
+<h4 id="懒汉式"><a href="#懒汉式" class="headerlink" title="懒汉式"></a>懒汉式</h4><ul>
+<li>首次调用获取实例的方法是才创建实例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 私有化构造方法</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 实例获取方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">instance</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="饿汉式"><a href="#饿汉式" class="headerlink" title="饿汉式"></a>饿汉式</h4><ul>
+<li>在类加载时就初始化实例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Singleton</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 私有化构造方法</span></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 实例获取方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="双检锁Double-Checked-Locking"><a href="#双检锁Double-Checked-Locking" class="headerlink" title="双检锁Double-Checked Locking"></a>双检锁Double-Checked Locking</h4><p>结合懒汉式饿汉式的邮件，在需要时才延迟创建，同时考虑线程安全</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化分为三步</span></span><br><span class="line"><span class="comment">     * 1.为 uniqueInstance 分配内存空间</span></span><br><span class="line"><span class="comment">     * 2.初始化 uniqueInstance</span></span><br><span class="line"><span class="comment">     * 3.将 uniqueInstance 指向分配的内存地址</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> Singleton instance;</span><br><span class="line">    <span class="comment">// </span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 第一次检查</span></span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="literal">null</span>)&#123;</span><br><span class="line">            sychronized(instance)&#123;</span><br><span class="line">                <span class="comment">// 申请到资源后再次检查</span></span><br><span class="line">                <span class="keyword">if</span>(instance == <span class="literal">null</span>)&#123;</span><br><span class="line">                    <span class="comment">// 初始化对象</span></span><br><span class="line">                    instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果不使用volatile关键字可能会出现的问题:</p>
+<ol>
+<li>线程 A 进入第一次检查，发现实例尚未创建，于是尝试获取同步锁。</li>
+<li>由于线程 A 获取到同步锁，它进入同步块内部，创建实例。</li>
+<li>在创建实例的过程中，由于指令重排，可能会导致实例的引用先被赋值，而实例的初始化稍后执行。</li>
+<li>线程 B 进入第一次检查，由于实例引用非空，直接返回实例，但此时实例可能尚未完全初始化。</li>
+</ol>
+<h4 id="静态内部类实现"><a href="#静态内部类实现" class="headerlink" title="静态内部类实现"></a>静态内部类实现</h4><p>利用静态内部类的初始化机制，静态内部类是在首次使用时进行加载。</p>
+<p>使用静态内部类持有单例实例，在需要时才加载内部类并创建实例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Singleton</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">SingletonHolder</span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Singleton</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> SingletonHolder.instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/MySQL/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JVM/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JUC/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2023/06/09/%E7%AE%97%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.616Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.604Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.600Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.595Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.591Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -392,8 +403,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

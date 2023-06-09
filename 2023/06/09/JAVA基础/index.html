@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="JAVA基础面向对象 三大特性 封装 把数据和方法绑定起来，对数据访问只能通过已定义的方法\接口。也就是说封装就是把数据隐藏起来，只对外部暴露操作的接口 目的就是为了隐藏内部细节，只暴露功能，保证模块独立性，是程序维护修改更容易，对应于程序的修改仅限于内部· ·   继承 从已有类中继承信息并进行拓展的过程，提供继承信息的类被称为是父类(超类，基类)，然后继承的那个类被称为是子类(派生类)，目的就">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JAVA基础面向对象 三大特性 封装 把数据和方法绑定起来，对数据访问只能通过已定义的方法\接口。也就是说封装就是把数据隐藏起来，只对外部暴露操作的接口 目的就是为了隐藏内部细节，只暴露功能，保证模块独立性，是程序维护修改更容易，对应于程序的修改仅限于内部· ·   继承 从已有类中继承信息并进行拓展的过程，提供继承信息的类被称为是父类(超类，基类)，然后继承的那个类被称为是子类(派生类)，目的就">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/PicGo/202305150314449.png">
+<meta property="article:published_time" content="2023-06-09T12:25:51.612Z">
+<meta property="article:modified_time" content="2023-06-08T06:26:02.035Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/PicGo/202305150314449.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -140,235 +146,231 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JAVA基础" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="JAVA基础"><a href="#JAVA基础" class="headerlink" title="JAVA基础"></a>JAVA基础</h1><h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
+<li>三大特性<ul>
+<li>封装<ul>
+<li>把数据和方法绑定起来，对数据访问只能通过已定义的方法\接口。也就是说封装就是把数据隐藏起来，只对外部暴露操作的接口</li>
+<li>目的就是为了隐藏内部细节，只暴露功能，保证模块独立性，是程序维护修改更容易，对应于程序的修改仅限于内部· ·</li>
+</ul>
+</li>
+<li>继承<ul>
+<li>从已有类中继承信息并进行拓展的过程，提供继承信息的类被称为是父类(超类，基类)，然后继承的那个类被称为是子类(派生类)，目的就是为了让软件系统具有一定的延续性，避免重复代码的编写</li>
+</ul>
+</li>
+<li>多态<ul>
+<li>多态就是允许不同的子类型对象对同一消息做出不同响应，就像同样的对象引用调用同样的方法但是做不同的事情<ul>
+<li>多态的核心<ul>
+<li>方法重写<ul>
+<li>继承或者是实现接口</li>
+</ul>
+</li>
+<li>向上转型<ul>
+<li>父类引用指向子类对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>目的<ul>
+<li>提高维护性</li>
+<li>提高拓展性</li>
+<li>降低代码耦合度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>抽象<ul>
+<li>将同一类型事物中的相同特性抽离出来</li>
+<li>包括两个方面<ul>
+<li>数据抽象 鸟都有翅膀</li>
+<li>过程抽象 鸟会叫</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="volatitle变量"><a href="#volatitle变量" class="headerlink" title="volatitle变量"></a>volatitle变量</h3><p>用于修饰变量的关键字，被修饰的变量具有以下特征:</p>
+<ul>
+<li>可见性<ul>
+<li>对于一个volatile变量的写操作会立即被其他线程可见，保证了多个线程之间对该变量的可见性。原因: 对volatile变量的写操作会立即刷新到主内存，并且读取volatile变量时会从主内存中读取最新的值，而不是使用线程本地的缓存</li>
+</ul>
+</li>
+<li>有序性<ul>
+<li>volatile变量可以禁止指令重排序，可以确保对该变量的读写操作按照程序中的顺序执行，避免指令重排序带来的问题</li>
+</ul>
+</li>
+</ul>
+<h4 id="volatile双检锁"><a href="#volatile双检锁" class="headerlink" title="volatile双检锁"></a>volatile双检锁</h4><p>这里是为了延迟加载</p>
+<p>如果只是为了实现单例模式的话 在构造器中初始化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.design;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Description: 双重检验锁实现对象单例(线程安全)</span></span><br><span class="line"><span class="comment"> * Param:</span></span><br><span class="line"><span class="comment"> * return:</span></span><br><span class="line"><span class="comment"> * Author: wzf</span></span><br><span class="line"><span class="comment"> * Date: 2023/3/16</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DoubleCheckSingleton</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1.为 uniqueInstance 分配内存空间</span></span><br><span class="line"><span class="comment">     * 2.初始化 uniqueInstance</span></span><br><span class="line"><span class="comment">     * 3.将 uniqueInstance 指向分配的内存地址</span></span><br><span class="line"><span class="comment">     * */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> DoubleCheckSingleton uniqueInstance; <span class="comment">// 使用volatile防止1,2,3步指令重排问题</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">DoubleCheckSingleton</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> DoubleCheckSingleton <span class="title function_">getUniqueInstance</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (uniqueInstance == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">synchronized</span> (uniqueInstance) &#123;</span><br><span class="line">                uniqueInstance = <span class="keyword">new</span> <span class="title class_">DoubleCheckSingleton</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><p>Integer维护了一个从-128 -127的Integer cache 是在类层面维护的缓存</p>
+<p>与String的在jvm层面维护的常量池不同</p>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><p><img src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/PicGo/202305150314449.png" alt="Java 引用类型总结"></p>
+<p><strong>1．强引用（StrongReference）</strong></p>
+<p>以前我们使用的大部分引用实际上都是强引用，这是使用最普遍的引用。如果一个对象具有强引用，那就类似于<strong>必不可少的生活用品</strong>，垃圾回收器绝不会回收它。当内存空间不足，Java 虚拟机宁愿抛出 OutOfMemoryError 错误，使程序异常终止，也不会靠随意回收具有强引用的对象来解决内存不足问题。</p>
+<p><strong>2．软引用（SoftReference）</strong></p>
+<p>如果一个对象只具有软引用，那就类似于<strong>可有可无的生活用品</strong>。如果内存空间足够，垃圾回收器就不会回收它，如果内存空间不足了，就会回收这些对象的内存。只要垃圾回收器没有回收它，该对象就可以被程序使用。软引用可用来实现内存敏感的高速缓存。</p>
+<p>软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，JAVA 虚拟机就会把这个软引用加入到与之关联的引用队列中。</p>
+<p><strong>3．弱引用（WeakReference）</strong></p>
+<p>如果一个对象只具有弱引用，那就类似于<strong>可有可无的生活用品</strong>。弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程， 因此不一定会很快发现那些只具有弱引用的对象。</p>
+<p>弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java 虚拟机就会把这个弱引用加入到与之关联的引用队列中。</p>
+<p><strong>4．虚引用（PhantomReference）</strong></p>
+<p>“虚引用”顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收。</p>
+<p><strong>虚引用主要用来跟踪对象被垃圾回收的活动</strong>。</p>
+<p><strong>虚引用与软引用和弱引用的一个区别在于：</strong> 虚引用必须和引用队列（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。程序如果发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</p>
+<p>特别注意，在程序设计中一般很少使用弱引用与虚引用，使用软引用的情况较多，这是因为<strong>软引用可以加速 JVM 对垃圾内存的回收速度，可以维护系统的运行安全，防止内存溢出（OutOfMemory）等问题的产生</strong>。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/MySQL/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.630Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JVM/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.624Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JUC/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.620Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+    <a href="/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/06/09/%E9%A1%B9%E7%9B%AE/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.616Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/JAVA%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.612Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.609Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.604Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.600Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.595Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/06/09/%E5%88%86%E5%B8%83%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2023-06-09T12:25:51.591Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-09</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -392,8 +394,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
