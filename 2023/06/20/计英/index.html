@@ -19,22 +19,20 @@
         <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
     
     <meta name="description" content="">
-    <meta name="description" content="计算机网络 TCP&#x2F;IP四层模型   img    img   应用层 HTTP HTTPS  (HTTP)消息&#x2F;报文  传输层 TCP UDP  (TCP)段(segment)  网络层 IP  (IP)传输单位: 包packet  网络接口层  传输单位: 帧frame   HTTP http请求报文  请求行  请求方式 UR">
-<meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络">
-<meta property="og:url" content="http://wzf0125.github.io/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://wzf0125.github.io/2023/06/20/%E8%AE%A1%E8%8B%B1/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="计算机网络 TCP&#x2F;IP四层模型   img    img   应用层 HTTP HTTPS  (HTTP)消息&#x2F;报文  传输层 TCP UDP  (TCP)段(segment)  网络层 IP  (IP)传输单位: 包packet  网络接口层  传输单位: 帧frame   HTTP http请求报文  请求行  请求方式 UR">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-08T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-06-09T12:52:35.350Z">
+<meta property="article:published_time" content="2023-06-20T12:57:41.799Z">
+<meta property="article:modified_time" content="2023-06-20T12:57:54.171Z">
 <meta property="article:author" content="wzf">
 <meta name="twitter:card" content="summary">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-    <title>计算机网络 · WZF的博客</title>
+    <title>WZF的博客</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -259,7 +257,7 @@
                 <a href="/">WZF的博客</a>
             </div>
             <div class="post-title header-element">
-                <a href="#" class="post-name">计算机网络</a>
+                <a href="#" class="post-name"></a>
             </div>
         </div>
     
@@ -305,7 +303,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-                计算机网络
+                [Untitled Post]
             <!-- 404 -->
             
         </h1>
@@ -331,13 +329,13 @@
                 <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">2.3k</span>Reading time: <span class="post-count reading-time">8 min</span></span>
+                        <span>Word count: <span class="post-count word-count">0</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <!-- 撰写日期 -->
                     <span class="iconfont-archer post-intro-calander">&#xe676;</span>
-                    <span class="post-intro-time">2023/06/09</span>
+                    <span class="post-intro-time">2023/06/20</span>
                     <!-- busuanzi -->
                     
                         <span id="busuanzi_container_page_pv" class="busuanzi-pv">
@@ -492,367 +490,16 @@
             <div class="container container-unloaded">
                 <main class="main post-page">
     <article class="article-entry">
-        <h1 id="计算机网络">计算机网络</h1>
-<h2 id="tcpip四层模型">TCP/IP四层模型</h2>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305112119650.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305112119204.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<ul>
-<li>应用层 HTTP HTTPS
-<ul>
-<li>(HTTP)消息/报文</li>
-</ul></li>
-<li>传输层 TCP UDP
-<ul>
-<li>(TCP)段(segment)</li>
-</ul></li>
-<li>网络层 IP
-<ul>
-<li>(IP)传输单位: 包packet</li>
-</ul></li>
-<li>网络接口层
-<ul>
-<li>传输单位: 帧frame</li>
-</ul></li>
-</ul>
-<h2 id="http">HTTP</h2>
-<p>http请求报文</p>
-<ul>
-<li>请求行
-<ul>
-<li>请求方式 URL 版本</li>
-</ul></li>
-<li>请求头
-<ul>
-<li>k v</li>
-</ul></li>
-<li>请求体
-<ul>
-<li>数据</li>
-</ul></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Accept: */*</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">&quot;name&quot;:&quot;test&quot;</span><br><span class="line">&quot;password&quot;:&quot;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>http响应报文</p>
-<ul>
-<li>响应行
-<ul>
-<li>版本 状态码 短语</li>
-</ul></li>
-<li>响应头
-<ul>
-<li>k v</li>
-</ul></li>
-<li>响应体
-<ul>
-<li>数据</li>
-</ul></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/html</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="状态码">状态码</h3>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132001236.png"
-alt="五大类 HTTP 状态码" />
-<figcaption aria-hidden="true">五大类 HTTP 状态码</figcaption>
-</figure>
-<h3 id="缓存">缓存</h3>
-<blockquote>
-<p>强制缓存</p>
-</blockquote>
-<p>通过响应头中的<code>Cache-Control</code>或<code>Expires</code>控制</p>
-<ul>
-<li><code>Cache-Control</code>， 是一个相对时间；</li>
-<li><code>Expires</code>，是一个绝对时间；</li>
-</ul>
-<p><strong>Cache-Control 的优先级高于 Expires</strong></p>
-<ul>
-<li>浏览器再次请求访问服务器中的该资源时，会先<strong>通过请求资源的时间与
-Cache-Control
-中设置的过期时间大小，来计算出该资源是否过期</strong>，如果没有，则使用该缓存，否则重新请求服务器；</li>
-<li>服务器再次收到请求后，会再次更新 Response 头部的 Cache-Control</li>
-</ul>
-<blockquote>
-<p>协商缓存</p>
-</blockquote>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132009451.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132012693.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<h3 id="https是如何建立连接的">HTTPS是如何建立连接的</h3>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132045250.jpeg"
-alt="HTTPS 连接建立过程" />
-<figcaption aria-hidden="true">HTTPS 连接建立过程</figcaption>
-</figure>
-<h3 id="http1.1">HTTP1.1</h3>
-<ul>
-<li>长连接</li>
-<li>pipline(管道)网络传输</li>
-</ul>
-<p>缺点</p>
-<p>请求头不能压缩</p>
-<p>冗长首部</p>
-<p>队头阻塞</p>
-<p>基于请求-响应模型</p>
-<h3 id="http2">HTTP2</h3>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132105703.jpeg"
-alt="HTT/1 ~ HTTP/2" />
-<figcaption aria-hidden="true">HTT/1 ~ HTTP/2</figcaption>
-</figure>
-<p><em>1.</em>头部压缩</p>
-<p>HTTP/2
-会<strong>压缩头</strong>（Header）如果你同时发出多个请求，他们的头是一样的或是相似的，那么，协议会帮你<strong>消除重复的部分</strong>。</p>
-<p>这就是所谓的 <code>HPACK</code>
-算法：在客户端和服务器同时维护一张头信息表，所有字段都会存入这个表，生成一个索引号，以后就不发送同样字段了，只发送索引号，这样就<strong>提高速度</strong>了</p>
-<ul>
-<li>二进制格式</li>
-<li>并发传输</li>
-<li>服务器主动推送资源</li>
-</ul>
-<p><em>2. 二进制格式</em></p>
-<p>HTTP/2 不再像 HTTP/1.1
-里的纯文本形式的报文，而是全面采用了<strong>二进制格式</strong>，头信息和数据体都是二进制，并且统称为帧（frame）：<strong>头信息帧（Headers
-Frame）和数据帧（Data Frame）</strong>。</p>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132128044.png"
-alt="HTTP/1 与 HTTP/2" />
-<figcaption aria-hidden="true">HTTP/1 与 HTTP/2</figcaption>
-</figure>
-<p><em>3. 并发传输</em></p>
-<p>多路复用</p>
-<p>我们都知道 HTTP/1.1 的实现是基于请求-响应模型的。同一个连接中，HTTP
-完成一个事务（请求与响应），才能处理下一个事务，也就是说在发出请求等待响应的过程中，是没办法做其他事情的，如果响应迟迟不来，那么后续的请求是无法发送的，也造成了<strong>队头阻塞</strong>的问题。</p>
-<p>而 HTTP/2 就很牛逼了，引出了 Stream 概念，多个 Stream 复用在一条 TCP
-连接。</p>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132128658.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<h3 id="http3">HTTP3</h3>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132131070.png"
-alt="HTTP/1 ~ HTTP/3" />
-<figcaption aria-hidden="true">HTTP/1 ~ HTTP/3</figcaption>
-</figure>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132128093.jpeg"
-alt="TCP HTTPS（TLS/1.3） 和 QUIC HTTPS" />
-<figcaption aria-hidden="true">TCP HTTPS（TLS/1.3） 和 QUIC
-HTTPS</figcaption>
-</figure>
-<p>基于udp
-不管丢不丢包，使用基于udp的quic协议保证类tcp的可靠传输，出现丢包只阻塞对应的流</p>
-<p>QUIC特点</p>
-<ul>
-<li>无队头阻塞</li>
-<li>更快的连接建立</li>
-<li>连接迁移</li>
-</ul>
-<p>QUIC 协议也有类似 HTTP/2 Stream
-与多路复用的概念，也是可以在同一条连接上并发传输多个 Stream，Stream
-可以认为就是一条 HTTP 请求。</p>
-<p>QUIC
-有自己的一套机制可以保证传输的可靠性的。<strong>当某个流发生丢包时，只会阻塞这个流，其他流不会受到影响，因此不存在队头阻塞问题</strong>。这与
-HTTP/2 不同，HTTP/2 只要某个流中的数据包丢失了，其他流也会因此受影响</p>
-<h3 id="tls加密过程">TLS加密过程</h3>
-<p>先进行TCP三次握手</p>
-<p>然后进行TLS三次握手</p>
-<ol type="1">
-<li><p>随机数，客户端TLS版本，支持的密码套件</p></li>
-<li><p>服务端响应</p>
-<ul>
-<li>随机数，服务端TLS版本，选择的密码套件</li>
-<li>证书</li>
-<li>Hello完成</li>
-</ul></li>
-<li><p>使用CA公钥验证证书并取出服务器公钥</p>
-<ul>
-<li><p>生成新随机数(pre-master key)</p></li>
-<li><p>使用服务器公钥加密随机数</p></li>
-<li><p>告知后续都使用回话秘钥通讯</p></li>
-<li><p>所有数据的摘要</p></li>
-</ul></li>
-<li><p>服务器回应</p>
-<ul>
-<li>加密通信算法改变通知，表示随后的信息都将用「会话秘钥」加密通信。</li>
-<li>服务器握手结束通知，表示服务器的握手阶段已经结束。这一项同时把之前所有内容的发生的数据做个摘要，用来供客户端校验。</li>
-</ul></li>
-</ol>
-<p>CA证书校验过程</p>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132141448.png"
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
-<ul>
-<li>首先 CA
-会把持有者的公钥、用途、颁发者、有效时间等信息打成一个包，然后对这些信息进行
-Hash 计算，得到一个 Hash 值；</li>
-<li>然后 CA 会使用自己的私钥将该 Hash 值加密，生成 Certificate
-Signature，也就是 CA 对证书做了签名；</li>
-<li>最后将 Certificate Signature 添加在文件证书上，形成数字证书；</li>
-</ul>
-<p>客户端校验服务端的数字证书的过程，如上图右边部分：</p>
-<ul>
-<li>首先客户端会使用同样的 Hash 算法获取该证书的 Hash 值 H1；</li>
-<li>通常浏览器和操作系统中集成了 CA 的公钥信息，浏览器收到证书后可以使用
-CA 的公钥解密 Certificate Signature 内容，得到一个 Hash 值 H2 ；</li>
-<li>最后比较 H1 和
-H2，如果值相同，则为可信赖的证书，否则则认为证书不可信。</li>
-</ul>
-<h2 id="tcp">TCP</h2>
-<p>tcp报文组成</p>
-<p>首部无选项字段时是20字节</p>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305112125781.png"
-alt="TCP 包头格式" />
-<figcaption aria-hidden="true">TCP 包头格式</figcaption>
-</figure>
-<p>TCP四元组</p>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132133964.png"
-alt="TCP 四元组" />
-<figcaption aria-hidden="true">TCP 四元组</figcaption>
-</figure>
-<h3 id="什么是tcp">什么是TCP</h3>
-<ul>
-<li><strong>面向连接</strong>：一定是「一对一」才能连接，不能像 UDP
-协议可以一个主机同时向多个主机发送消息，也就是一对多是无法做到的；</li>
-<li><strong>可靠的</strong>：无论的网络链路中出现了怎样的链路变化，TCP
-都可以保证一个报文一定能够到达接收端；</li>
-<li><strong>字节流</strong>：用户消息通过 TCP
-协议传输时，消息可能会被操作系统「分组」成多个的 TCP
-报文，如果接收方的程序如果不知道「消息的边界」，是无法读出一个有效的用户消息的。并且
-TCP 报文是「有序的」，当「前一个」TCP
-报文没有收到的时候，即使它先收到了后面的 TCP
-报文，那么也不能扔给应用层去处理，同时对「重复」的 TCP
-报文会自动丢弃</li>
-</ul>
-<h3 id="三次握手">三次握手</h3>
-<h2 id="udp">UDP</h2>
-<p>首部固定8字节</p>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305132224762.png"
-alt="UDP 头部格式" />
-<figcaption aria-hidden="true">UDP 头部格式</figcaption>
-</figure>
-<h2 id="tcp和udp对比">TCP和UDP对比</h2>
-<h3 id="区别">区别</h3>
-<p><em>1. 连接</em></p>
-<ul>
-<li>TCP 是面向连接的传输层协议，传输数据前先要建立连接。</li>
-<li>UDP 是不需要连接，即刻传输数据。</li>
-</ul>
-<p><em>2. 服务对象</em></p>
-<ul>
-<li>TCP 是一对一的两点服务，即一条连接只有两个端点。</li>
-<li>UDP 支持一对一、一对多、多对多的交互通信</li>
-</ul>
-<p><em>3. 可靠性</em></p>
-<ul>
-<li>TCP
-是可靠交付数据的，数据可以无差错、不丢失、不重复、按序到达。</li>
-<li>UDP 是尽最大努力交付，不保证可靠交付数据。但是我们可以基于 UDP
-传输协议实现一个可靠的传输协议，比如 QUIC 协议，具体可以参见这篇文章：<a
-target="_blank" rel="noopener" href="https://xiaolincoding.com/network/3_tcp/quic.html">如何基于 UDP
-协议实现可靠传输？(opens new window)</a></li>
-</ul>
-<p><em>4. 拥塞控制、流量控制</em></p>
-<ul>
-<li>TCP 有拥塞控制和流量控制机制，保证数据传输的安全性。</li>
-<li>UDP 则没有，即使网络非常拥堵了，也不会影响 UDP 的发送速率。</li>
-</ul>
-<p><em>5. 首部开销</em></p>
-<ul>
-<li>TCP 首部长度较长，会有一定的开销，首部在没有使用「选项」字段时是
-<code>20</code> 个字节，如果使用了「选项」字段则会变长的。</li>
-<li>UDP 首部只有 8 个字节，并且是固定不变的，开销较小。</li>
-</ul>
-<p><em>6. 传输方式</em></p>
-<ul>
-<li>TCP 是流式传输，没有边界，但保证顺序和可靠。</li>
-<li>UDP 是一个包一个包的发送，是有边界的，但可能会丢包和乱序。</li>
-</ul>
-<p><em>7. 分片不同</em></p>
-<ul>
-<li>TCP 的数据大小如果大于 MSS
-大小，则会在传输层进行分片，目标主机收到后，也同样在传输层组装 TCP
-数据包，如果中途丢失了一个分片，只需要传输丢失的这个分片。</li>
-<li>UDP 的数据大小如果大于 MTU 大小，则会在 IP
-层进行分片，目标主机收到后，在 IP 层组装完数据，接着再传给传输层。</li>
-</ul>
-<h3 id="应用场景">应用场景</h3>
-<p>由于 TCP 是面向连接，能保证数据的可靠性交付，因此经常用于：</p>
-<ul>
-<li><code>FTP</code> 文件传输；</li>
-<li>HTTP / HTTPS；</li>
-</ul>
-<p>由于 UDP 面向无连接，它可以随时发送数据，再加上 UDP
-本身的处理既简单又高效，因此经常用于：</p>
-<ul>
-<li>包总量较少的通信，如 <code>DNS</code> 、<code>SNMP</code> 等；</li>
-<li>视频、音频等多媒体通信；</li>
-<li>广播通信；</li>
-</ul>
-<h2 id="ip">IP</h2>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305131849503.jpeg"
-alt="IP 包头格式" />
-<figcaption aria-hidden="true">IP 包头格式</figcaption>
-</figure>
-<h2 id="mac头">MAC头</h2>
-<figure>
-<img
-src="https://974500760-1303995467.cos.ap-guangzhou.myqcloud.com/Picgo/202305131857842.png"
-alt="MAC 包头格式" />
-<figcaption aria-hidden="true">MAC 包头格式</figcaption>
-</figure>
-<p>在 MAC 包头里需要<strong>发送方 MAC 地址</strong>和<strong>接收方目标
-MAC 地址</strong>，用于<strong>两点之间的传输</strong>。</p>
-<p>一般在 TCP/IP 通信里，MAC 包头的<strong>协议类型</strong>只使用：</p>
-<ul>
-<li><code>0800</code> ： IP 协议</li>
-<li><code>0806</code> ： ARP 协议</li>
-</ul>
+        <h1 id="section"></h1>
 
     </article>
     <!-- license -->
     
         <div class="license-wrapper">
             <p>Author：<a href="http://wzf0125.github.io">wzf</a>
-            <p>Link：<a href="http://wzf0125.github.io/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">http://wzf0125.github.io/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</a>
-            <p>Publish date：<a href="http://wzf0125.github.io/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">June 9th 2023, 12:00:00 am</a>
-            <p>Update date：<a href="http://wzf0125.github.io/2023/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">June 9th 2023, 8:52:35 pm</a>
+            <p>Link：<a href="http://wzf0125.github.io/2023/06/20/%E8%AE%A1%E8%8B%B1/">http://wzf0125.github.io/2023/06/20/%E8%AE%A1%E8%8B%B1/</a>
+            <p>Publish date：<a href="http://wzf0125.github.io/2023/06/20/%E8%AE%A1%E8%8B%B1/">June 20th 2023, 8:57:41 pm</a>
+            <p>Update date：<a href="http://wzf0125.github.io/2023/06/20/%E8%AE%A1%E8%8B%B1/">June 20th 2023, 8:57:54 pm</a>
             <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -860,17 +507,12 @@ MAC 地址</strong>，用于<strong>两点之间的传输</strong>。</p>
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2023/06/09/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">
-                    <div class="nextTitle">设计模式</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2023/06/09/%E9%A1%B9%E7%9B%AE/" title="项目">
-                    <div class="prevTitle">项目</div>
+                <a href="/2023/06/19/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AARPC%E6%A1%86%E6%9E%B6/" title="">
+                    <div class="prevTitle">[Untitled Post]</div>
                 </a>
             
         </li>
@@ -1010,7 +652,7 @@ MAC 地址</strong>，用于<strong>两点之间的传输</strong>。</p>
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="toc-number">1.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tcpip%E5%9B%9B%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">TCP&#x2F;IP四层模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http"><span class="toc-number">1.2.</span> <span class="toc-text">HTTP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">1.2.1.</span> <span class="toc-text">状态码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%AD%98"><span class="toc-number">1.2.2.</span> <span class="toc-text">缓存</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#https%E6%98%AF%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5%E7%9A%84"><span class="toc-number">1.2.3.</span> <span class="toc-text">HTTPS是如何建立连接的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http1.1"><span class="toc-number">1.2.4.</span> <span class="toc-text">HTTP1.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http2"><span class="toc-number">1.2.5.</span> <span class="toc-text">HTTP2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http3"><span class="toc-number">1.2.6.</span> <span class="toc-text">HTTP3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tls%E5%8A%A0%E5%AF%86%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.7.</span> <span class="toc-text">TLS加密过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tcp"><span class="toc-number">1.3.</span> <span class="toc-text">TCP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFtcp"><span class="toc-number">1.3.1.</span> <span class="toc-text">什么是TCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">三次握手</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#udp"><span class="toc-number">1.4.</span> <span class="toc-text">UDP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tcp%E5%92%8Cudp%E5%AF%B9%E6%AF%94"><span class="toc-number">1.5.</span> <span class="toc-text">TCP和UDP对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-number">1.5.1.</span> <span class="toc-text">区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.2.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip"><span class="toc-number">1.6.</span> <span class="toc-text">IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mac%E5%A4%B4"><span class="toc-number">1.7.</span> <span class="toc-text">MAC头</span></a></li></ol></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#section"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol>
             </div>
         
         <!-- sidebar -->
